@@ -223,14 +223,6 @@
               <span data-l10n-id="bookmark_label">Current View</span>
             </a>
 
-
-               <div class="row">
-              <span data-l10n-id="document_properties_page_size"
-                >Page Size:</span
-              >
-              <p id="pageSizeField">-</p>
-            </div>
-
             <div
               v-if="
                 showElem('secondaryToolbar.secondaryPresentationMode') ||
@@ -1151,6 +1143,13 @@ export default class PdfViewer extends Vue {
         .then(this.bindFindbarToggleEvents.bind(this))
         .catch(errorHandler);
     }
+
+  }
+
+  onMounted() {
+    document.getElementById.bind('overlayContainer')
+    document.getElementById.bind('documentProperties')
+    document.getElementById.bind('documentPropertiesOverlay')
   }
 
   private bindSidebarToggleEvents() {

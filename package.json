@@ -1,6 +1,6 @@
 {
-  "name": "vue-pdf-app",
-  "version": "2.1.0",
+  "name": "vue-pdf-size",
+  "version": "1.0.0",
   "description": "Vue 2 pdf viewer",
   "main": "dist/vue-pdf-app.umd.js",
   "unpkg": "dist/vue-pdf-app.umd.min.js",
@@ -21,7 +21,7 @@
     "pdf",
     "viewer"
   ],
-  "author": "sandanat",
+  "author": "martoxak",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sandanat/vue-pdf-app/issues"
