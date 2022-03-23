@@ -8,16 +8,11 @@
     file-name="Custom fileName"
     style="position: relative"
   >
-    <template #footer>
-      <div class="footer">
-        <span>Footer</span>
-      </div>
-    </template>
   </pdf-viewer>
 </template>
 
 <script>
-import PdfViewer from "@/components/pdf-viewer.vue";
+import PdfViewer from '@/components/pdf-viewer.vue'
 
 export default {
   components: {
@@ -32,23 +27,23 @@ export default {
         //   },
         // },
       },
-      scale: "1",
-      pdf: "/sample.pdf",
-    };
+      scale: '1',
+      pdf: '/sample.pdf',
+    }
   },
   methods: {
     afterCreated(pdfApp) {
-      window._pdfApp = pdfApp;
-      console.log("===***=== After created");
+      window._pdfApp = pdfApp
+      console.log('===***=== After created')
     },
     open() {
-      console.log("===***=== Opened");
+      console.log('===***=== Opened')
     },
     pagesRendered() {
-      console.log("===***=== Pages rendered");
+      console.log('===***=== Pages rendered')
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
