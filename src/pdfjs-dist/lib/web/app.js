@@ -137,7 +137,7 @@ const PDFViewerApplication = {
   pdfThumbnailViewer: null,
   pdfRenderingQueue: null,
   pdfPresentationMode: null,
-  pdfDocumentProperties: true,
+  pdfDocumentProperties: null,
   pdfLinkService: null,
   pdfHistory: null,
   pdfSidebar: null,
@@ -538,7 +538,7 @@ const PDFViewerApplication = {
       this.pdfThumbnailViewer.setDocument(null);
       this.pdfViewer.setDocument(null);
       this.pdfLinkService.setDocument(null);
-      this.pdfDocumentProperties.setDocument(true);
+      this.pdfDocumentProperties.setDocument(null);
     }
 
     this.store = null;
@@ -1929,7 +1929,7 @@ function webViewerSwitchSpreadMode(evt) {
 function webViewerDocumentProperties() {
   PDFViewerApplication.pdfDocumentProperties.open();
 }
-webViewerDocumentProperties()
+
 function webViewerFind(evt) {
   PDFViewerApplication.findController.executeCommand("find" + evt.type, {
     query: evt.query,
