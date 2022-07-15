@@ -55,7 +55,6 @@ function getPageName(size, isPortrait, pageNames) {
   const height = isPortrait ? size.height : size.width;
   
   function getSizePageInterval(max, min){
-    console.log(max, min)
     if(max >= 297 && max < 420 && min > 210) {
       return pageNames[`A4+xA4+`];
     }
@@ -308,7 +307,6 @@ class PDFDocumentProperties {
     };
     let pageName = null;
     let rawName = getPageName(sizeMillimeters, isPortrait, METRIC_PAGE_NAMES);
-    console.log(rawName)
     if (!rawName && !(Number.isInteger(sizeMillimeters.width) && Number.isInteger(sizeMillimeters.height))) {
       const exactMillimeters = {
         width: pageSizeInches.width * 25.4,
