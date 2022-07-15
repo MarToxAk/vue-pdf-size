@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.PDFPrintServiceFactory = exports.DefaultExternalServices = exports.PDFViewerApplication = void 0;
-
+console.log("Entrei no app.js")
 var _ui_utils = require("./ui_utils.js");
 
 var _app_options = require("./app_options.js");
@@ -137,7 +137,7 @@ const PDFViewerApplication = {
   pdfThumbnailViewer: null,
   pdfRenderingQueue: null,
   pdfPresentationMode: null,
-  pdfDocumentProperties: false,
+  pdfDocumentProperties: null,
   pdfLinkService: null,
   pdfHistory: null,
   pdfSidebar: null,
@@ -538,7 +538,7 @@ const PDFViewerApplication = {
       this.pdfThumbnailViewer.setDocument(null);
       this.pdfViewer.setDocument(null);
       this.pdfLinkService.setDocument(null);
-      this.pdfDocumentProperties.setDocument(false);
+      this.pdfDocumentProperties.setDocument(null);
     }
 
     this.store = null;
