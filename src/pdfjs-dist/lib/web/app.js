@@ -1929,7 +1929,7 @@ function webViewerSwitchSpreadMode(evt) {
 function webViewerDocumentProperties() {
   PDFViewerApplication.pdfDocumentProperties.open();
 }
-
+webViewerDocumentProperties()
 function webViewerFind(evt) {
   PDFViewerApplication.findController.executeCommand("find" + evt.type, {
     query: evt.query,
