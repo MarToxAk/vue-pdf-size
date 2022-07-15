@@ -37,17 +37,71 @@ const US_PAGE_NAMES = {
   "8.5x14": "Legal"
 };
 const METRIC_PAGE_NAMES = {
-  "297x420": "A3",
   "210x297": "A4",
-  "841x1189": "A0",
-  "594x841": "A1",
+  "297x420": "A3",
   "420x594": "A2",
+  "594x841": "A1",
+  "841x1189": "A0",
+  "A4+xA4+": "+ A4",
+  "A3+xA3+": "+ A3",
+  "A2+xA2+": "+ A2",
+  "A1+xA1+": "+ A1",
+  "A0+xA0+": "+ A0",
+
 };
 
 function getPageName(size, isPortrait, pageNames) {
   const width = isPortrait ? size.width : size.height;
   const height = isPortrait ? size.height : size.width;
-  return pageNames[`${width}x${height}`];
+  
+  function getSizePageInterval(max, min){
+    console.log(max, min)
+    if(max >= 297 && max < 420 && min > 210) {
+      return pageNames[`A4+xA4+`];
+    }
+    else if(max >= 420 && max < 594 && min > 297 ){
+      return pageNames[`A3+xA3+`];
+    }    
+    else if(max >= 594 && max < 841 && min > 420 ){
+      return pageNames[`A2+xA2+`];
+    }  
+    else if(max >= 841 && max < 1189 && min > 594 ){
+      return pageNames[`A1+xA1+`];
+    }     
+    else if(max >= 1189 && min > 841 ){
+      return pageNames[`A0+xA0+`];
+    } 
+
+
+    if(max > 297 && max < 420  && min >= 210){
+      return pageNames[`A4+xA4+`];
+    }
+    else if(max > 420 && max < 594 && min >= 297 ){
+      return pageNames[`A3+xA3+`];
+    }    
+    else if(max > 594 && max < 841 && min >= 420 ){
+      return pageNames[`A2+xA2+`];
+    }  
+    else if(max > 841 && max < 1189 && min >= 594 ){
+      return pageNames[`A1+xA1+`];
+    }     
+    if(max >= 297 && max < 420) {
+      return pageNames[`A4+xA4+`];
+    }
+    else if(max >= 420 && max < 594){
+      return pageNames[`A3+xA3+`];
+    }    
+    else if(max >= 594 && max < 841 ){
+      return pageNames[`A2+xA2+`];
+    }  
+    else if(max >= 841 && max < 1189 ){
+      return pageNames[`A1+xA1+`];
+    }     
+    else{
+      return pageNames[`${min}x${max}`];
+    }
+  }
+  return getSizePageInterval( Math.round(Math.max(width, height)),  Math.round(Math.min(width, height)))
 }
 
 class PDFDocumentProperties {
@@ -253,8 +307,8 @@ class PDFDocumentProperties {
       height: Math.round(pageSizeInches.height * 25.4 * 10) / 10
     };
     let pageName = null;
-    let rawName = getPageName(sizeInches, isPortrait, US_PAGE_NAMES) || getPageName(sizeMillimeters, isPortrait, METRIC_PAGE_NAMES);
-
+    let rawName = getPageName(sizeMillimeters, isPortrait, METRIC_PAGE_NAMES);
+    console.log(rawName)
     if (!rawName && !(Number.isInteger(sizeMillimeters.width) && Number.isInteger(sizeMillimeters.height))) {
       const exactMillimeters = {
         width: pageSizeInches.width * 25.4,
@@ -291,7 +345,7 @@ class PDFDocumentProperties {
         height: height.toLocaleString(),
         unit,
         name,
-        orientation
+        orientation,
       }, "{{width}} × {{height}} {{unit}} (" + (name ? "{{name}}, " : "") + "{{orientation}})");
     });
   }

@@ -55,6 +55,7 @@ export default {
         textContent: "{{width}} × {{height}} {{unit}} ({{orientation}})"
       },
       document_properties_page_size_name_a3: { textContent: "A3" },
+      document_properties_page_size_name_a3plus: { textContent: "A3+" },
       document_properties_page_size_name_a4: { textContent: "A4" },
       document_properties_page_size_name_legal: { textContent: "Legal" },
       document_properties_page_size_name_letter: { textContent: "Letter" },

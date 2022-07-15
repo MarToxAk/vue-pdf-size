@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/sandanat/vue-pdf-app#readme",
   "scripts": {
+    "dev": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib src/components/pdf-viewer.vue",
