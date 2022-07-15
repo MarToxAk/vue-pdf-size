@@ -137,7 +137,7 @@ const PDFViewerApplication = {
   pdfThumbnailViewer: null,
   pdfRenderingQueue: null,
   pdfPresentationMode: null,
-  pdfDocumentProperties: true,
+  pdfDocumentProperties: false,
   pdfLinkService: null,
   pdfHistory: null,
   pdfSidebar: null,
@@ -538,7 +538,7 @@ const PDFViewerApplication = {
       this.pdfThumbnailViewer.setDocument(null);
       this.pdfViewer.setDocument(null);
       this.pdfLinkService.setDocument(null);
-      this.pdfDocumentProperties.setDocument(true);
+      this.pdfDocumentProperties.setDocument(false);
     }
 
     this.store = null;
