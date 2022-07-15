@@ -47,7 +47,6 @@ const METRIC_PAGE_NAMES = {
   "A2+xA2+": "+ A2",
   "A1+xA1+": "+ A1",
   "A0+xA0+": "+ A0",
-
 };
 
 function getPageName(size, isPortrait, pageNames) {
