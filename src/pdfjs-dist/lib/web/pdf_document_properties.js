@@ -50,9 +50,11 @@ const METRIC_PAGE_NAMES = {
 };
 
 function getPageName(size, isPortrait, pageNames) {
-  const width = isPortrait ? size.width : size.height;
-  const height = isPortrait ? size.height : size.width;
+  const width = Math.round(isPortrait ? size.width : size.height)
+  const height = Math.round(isPortrait ? size.height : size.width)
   
+
+
   function getSizePageInterval(max, min){
     if(max >= 297 && max < 420 && min > 210) {
       return pageNames[`A4+xA4+`];
@@ -69,32 +71,6 @@ function getPageName(size, isPortrait, pageNames) {
     else if(max >= 1189 && min > 841 ){
       return pageNames[`A0+xA0+`];
     } 
-
-
-    if(max > 297 && max < 420  && min >= 210){
-      return pageNames[`A4+xA4+`];
-    }
-    else if(max > 420 && max < 594 && min >= 297 ){
-      return pageNames[`A3+xA3+`];
-    }    
-    else if(max > 594 && max < 841 && min >= 420 ){
-      return pageNames[`A2+xA2+`];
-    }  
-    else if(max > 841 && max < 1189 && min >= 594 ){
-      return pageNames[`A1+xA1+`];
-    }     
-    if(max >= 297 && max < 420) {
-      return pageNames[`A4+xA4+`];
-    }
-    else if(max >= 420 && max < 594){
-      return pageNames[`A3+xA3+`];
-    }    
-    else if(max >= 594 && max < 841 ){
-      return pageNames[`A2+xA2+`];
-    }  
-    else if(max >= 841 && max < 1189 ){
-      return pageNames[`A1+xA1+`];
-    }     
     else{
       return pageNames[`${min}x${max}`];
     }
